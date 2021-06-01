@@ -6,13 +6,19 @@
 	<meta name="description" content="Initial page">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="vu-consentform.css">
-	<script>
-		var test_url = 'https://oplab.barrios.io/oplab/60aeafaae51c7f5ca816cee7/execute?mode=live&nextType=HIT&nextID=60b1f821e51c7f5ca816cf15&stimuliFolderID=60b1f1b9e51c7f5ca816cf0e';
+	<script type="text/javascript">
+
+		var urls = new Array();
+		urls[0] = "https://oplab.barrios.io/oplab/60aeafaae51c7f5ca816cee7/execute?mode=live&nextType=HIT&nextID=60b1f821e51c7f5ca816cf15&stimuliFolderID=60b1f1b9e51c7f5ca816cf0e";
+		urls[1] = "https://oplab.barrios.io/oplab/60aeafaae51c7f5ca816cee7/execute?mode=live&nextType=HIT&nextID=60b1f55be51c7f5ca816cf13&stimuliFolderID=60b1f40ae51c7f5ca816cf12";
+		urls[2] = "https://oplab.barrios.io/oplab/60aeafaae51c7f5ca816cee7/execute?mode=live&nextType=HIT&nextID=60b1f405e51c7f5ca816cf11&stimuliFolderID=60b1f2d5e51c7f5ca816cf10";
+		var random = Math.floor(Math.random()*urls.length);
+		var test_url = urls[random];
 		if (window.location.search.length > 0) {
 			test_url = test_url + (test_url.includes('?') ? '&' : '?') + window.location.search.substring(1);
 		}
 		function accept_clicked() { location.href = test_url; }
-	</script>
+		</script>
 </head>
 <body>
 	<div id="for-desktop" style="display: none;">
