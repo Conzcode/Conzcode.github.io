@@ -9,9 +9,8 @@
 	<script type="text/javascript">
 
 		var urls = new Array();
-		urls[0] = "https://oplab.barrios.io/oplab/60661ded68466c49a327909a/execute?mode=live&nextType=HIT&nextID=60b85c992184f802c47f684c&stimuliFolderID=60b85bfe2184f802c47f684b";
-		urls[1] = "https://oplab.barrios.io/oplab/60661ded68466c49a327909a/execute?mode=live&nextType=HIT&nextID=60b85bf72184f802c47f684a&stimuliFolderID=60b85b642184f802c47f6849";
-		urls[2] = "https://oplab.barrios.io/oplab/60661ded68466c49a327909a/execute?mode=live&nextType=HIT&nextID=60b85b562184f802c47f6848&stimuliFolderID=60b85a6d2184f802c47f6847";
+		urls[0] = "https://oplab.barrios.io/oplab/60aeafaae51c7f5ca816cee7/execute?mode=live&nextType=HIT&nextID=613b7d790d4358271301c550&stimuliFolderID=613b7cf50d4358271301c54f";
+		urls[1] = "https://oplab.barrios.io/oplab/60aeafaae51c7f5ca816cee7/execute?mode=live&nextType=HIT&nextID=613b7d73e0708b062b9abeb0&stimuliFolderID=613b7b32e0708b062b9abeaf";
 		var random = Math.floor(Math.random()*urls.length);
 		var test_url = urls[random];
 		if (window.location.search.length > 0) {
@@ -26,9 +25,18 @@
 		<h1>Vanderbilt University</h1>
 		<button type="button" onClick="accept_clicked()">Proceed to experiment</button>
 	</div>
+	</div>
 
+	<div id="for-mobile" style="display: none;">
+	<div class="wrapper">
+	<p>This online test is not suitable for mobile devices. Please access this page on your desktop or laptop computer.</p>
+	</div>
+	</div>
+
+	<script src="mobile-detect.min.js"></script>
 	<script>
-		var div_id = "for-desktop"
+		var detector = new MobileDetect(window.navigator.userAgent);
+		var div_id = (detector.mobile() == null ? "for-desktop" : "for-mobile");
 		document.addEventListener("DOMContentLoaded", function(e) {
 			document.getElementById(div_id).style.display = "block";
 		});
