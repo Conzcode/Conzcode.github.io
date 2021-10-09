@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Vanderbilt University Experiment</title>
+	<meta name="description" content="Initial page">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="vu-consentform.css">
+	<script type="text/javascript">
+
+		var urls = new Array();
+		urls[0] = "https://oplab.barrios.io/oplab/60aeafaae51c7f5ca816cee7/execute?mode=live&nextType=HIT&nextID=614b6fe9219fc456a9910fce&stimuliFolderID=614b6f4e219fc456a9910fcd";
+		urls[1] = "https://oplab.barrios.io/oplab/60aeafaae51c7f5ca816cee7/execute?mode=live&nextType=HIT&nextID=614b6fe9219fc456a9910fce&stimuliFolderID=614b6f4e219fc456a9910fcd";
+		var random = Math.floor(Math.random()*urls.length);
+		var test_url = urls[random];
+		if (window.location.search.length > 0) {
+			test_url = test_url + (test_url.includes('?') ? '&' : '?') + window.location.search.substring(1);
+		}
+		function accept_clicked() { location.href = test_url; }
+		</script>
+</head>
+<body>
+	<div id="for-desktop" style="display: none;">
+	<div class="wrapper">
+		<h1>Vanderbilt University</h1>
+		<button type="button" onClick="accept_clicked()">Proceed to experiment</button>
+	</div>
+	</div>
+
+	<div id="for-mobile" style="display: none;">
+	<div class="wrapper">
+	<p>This online test is not suitable for mobile devices. Please access this page on your desktop or laptop computer.</p>
+	</div>
+	</div>
+
+	<script src="mobile-detect.min.js"></script>
+	<script>
+		var detector = new MobileDetect(window.navigator.userAgent);
+		var div_id = (detector.mobile() == null ? "for-desktop" : "for-mobile");
+		document.addEventListener("DOMContentLoaded", function(e) {
+			document.getElementById(div_id).style.display = "block";
+		});
+	</script>
+</body>
+</html>
